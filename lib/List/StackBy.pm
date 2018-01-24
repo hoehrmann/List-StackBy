@@ -56,7 +56,7 @@ List::StackBy - Group runs of similar elements
   my @uniq = map { $_->[0] } stack_by { uc } qw/A B b A b B A/;
   # A B A b A
 
-  my @by_col1 = map { /^\s*(\d+)/ ? $1 : undef } (
+  my @by_col1 = stack_by { /^(\d+)/ ? $1 : undef } (
     "123,foo",
     "123,bar",
     "456,baz",
